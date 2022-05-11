@@ -1,6 +1,6 @@
 # Algorithm Study
 
-Algorithm study with KHG2017, oognuyh, and Nohtaewon
+Algorithm study with KHG0217, oognuyh, and Nohtaewon
 
 ## Table of Contents
 
@@ -31,15 +31,15 @@ Algorithm study with KHG2017, oognuyh, and Nohtaewon
 ```bash
 |-- Week1 # Week + nth
     |-- BOJ2480 # Algorithm Site + Problem No
-        |-- KHG2017.java
+        |-- KHG0217.java
         |-- oognuyh.kt
         |-- Nohtaewon.java
     |-- P92334
-        |-- KHG2017.java
+        |-- KHG0217.java
         |-- oognuyh.java
         |-- Nohtaewon.java
     |-- LC1641
-        |-- KHG2017.java
+        |-- KHG0217.java
         |-- oognuyh.java
         |-- Nohtaewon.java
 |-- Week2
@@ -49,7 +49,7 @@ Algorithm study with KHG2017, oognuyh, and Nohtaewon
 
 - Format: "\${github.username}.\${file.extionsion}"
 - e.g.
-  - KHG2017.java
+  - KHG0217.java
   - oognuyh.java
   - Nohtaewon.java
 
