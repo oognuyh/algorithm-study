@@ -1,0 +1,19 @@
+name: Reformat
+
+on:
+  push:
+    branches:
+      - master
+
+permissions: write-all
+
+jobs:
+  formatting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.3.4
+      - uses: axel-op/googlejavaformat-action@v3
+        with:
+          args: "--skip-sorting-imports --replace"
+          githubToken: ${{ secrets.TOKEN }}
+          commitMessage: "reformat"
