@@ -20,7 +20,7 @@ public class KHG0217 {
 	         System.out.println(1000+a*100); 
 	      }else if((b==c)) {
 	         System.out.println(1000+b*100);
-	      }else if((a!=b)&&(a!=c)) {
+	      }else {
 	    	  int big = Math.max(a,Math.max(b, c));
 		         System.out.println(big*100);
 	      }
