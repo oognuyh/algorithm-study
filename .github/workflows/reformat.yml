@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: ${{ github.head_ref }}
       - run: echo running on branch ${GITHUB_REF##*/}
       - run: cd BOJ2480 && ls -al
       - uses: axel-op/googlejavaformat-action@v3
