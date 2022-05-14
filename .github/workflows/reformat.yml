@@ -11,6 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
+          ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
       - run: echo running on branch ${GITHUB_REF##*/}
       - run: cd BOJ2480 && ls -al
