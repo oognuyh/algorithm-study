@@ -10,8 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
       - run: cd BOJ2480 && ls -al
       - uses: axel-op/googlejavaformat-action@v3
         with:
