@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Check out branch
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
 
       - name: Show GitHub context
         env:
@@ -37,7 +39,6 @@ jobs:
           branch: reformat
           labels: reformat
           base: feature/reformat
-          reviewers: oognuyh
 
       - name: Auto approve
         if: steps.cpr.outputs.pull-request-operation == 'created'
