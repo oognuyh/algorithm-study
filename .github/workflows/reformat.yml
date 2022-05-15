@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Check out base branch
         uses: actions/checkout@v3
-        run: git branch --show-current
+      - run: git branch --show-current
 
       - name: Create PR
         id: new-branch
@@ -24,7 +24,7 @@ jobs:
           base: feature/reformat
           branch-suffix: timestamp
           reviewers: oognuyh
-        run: git branch --show-current
+      - run: git branch --show-current
 
       - name: Reformat java files
         uses: axel-op/googlejavaformat-action@v3
