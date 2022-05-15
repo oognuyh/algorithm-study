@@ -18,8 +18,11 @@ jobs:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT"
 
+      - run: git branch --list
+
       - run: |
           git checkout reformat 2>/dev/null || git checkout -b reformat
+          git pull origin reformat
 
       - run: git branch --show-current
 
