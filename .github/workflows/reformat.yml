@@ -10,7 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: echo running on branch ${GITHUB_REF##*/}
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
       - run: cd BOJ2480 && ls -al
       - uses: axel-op/googlejavaformat-action@v3
         with:
