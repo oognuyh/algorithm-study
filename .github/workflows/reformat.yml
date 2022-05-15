@@ -1,7 +1,7 @@
 name: Reformat
 
 on:
-  pull_request_target:
+  push:
     branches:
       - feature/*
 
@@ -12,8 +12,6 @@ jobs:
     steps:
       - name: Check out base branch
         uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
       - run: cd BOJ2480 && ls -al
 
       - name: Create PR
