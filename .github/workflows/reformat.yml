@@ -34,6 +34,7 @@ jobs:
           branch: reformat
           labels: reformat
           base: feature/reformat
+          delete-branch: true
 
       - name: Auto approve
         if: steps.cpr.outputs.pull-request-operation == 'created'
