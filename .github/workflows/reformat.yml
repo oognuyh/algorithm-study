@@ -23,8 +23,6 @@ jobs:
           branch: reformat
           branch-suffix: timestamp
           reviewers: oognuyh
-          base: feature/reformat
-          delete-branch: true
 
       - name: Check out PR branch
         uses: actions/checkout@v3
