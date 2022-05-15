@@ -11,8 +11,25 @@ jobs:
     steps:
       - name: Check out
         uses: actions/checkout@v3
+      - run: cd BOJ2480 && ls -al
+
+      - name: Create PR
+        id: new-branch
+        uses: peter-evans/create-pull-request@v4
         with:
-          ref: "refs/pull/${{ github.event.number }}/merge"
+          token: ${{ secrets.TOKEN }}
+          title: Formatting
+          commit-message: reformat java files
+          branch: reformat
+          branch-suffix: timestamp
+          reviewers: oognuyh
+          base: feature/reformat
+          delete-branch: true
+
+      - name: Check out PR branch
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ steps.new-branch.outputs.pull-request-head-sha }}
       - run: cd BOJ2480 && ls -al
 
       - name: Reformat java files
