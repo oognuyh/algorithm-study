@@ -19,7 +19,7 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
 
       - run: |
-          checkout -b reformat
+          git checkout reformat 2>/dev/null || git checkout -b reformat
 
       - run: git branch --show-current
 
