@@ -18,13 +18,15 @@ jobs:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT"
 
-      - name: Create branch if not exists
-        uses: peterjgrainger/action-create-branch@v2.2.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      - name: Create Branch
+        uses: peter-evans/create-pull-request@v4
         with:
-          branch: "reformat"
-          sha: "${{ github.sha }}"
+          token: ${{ secrets.TOKEN }}
+          title: Reformat
+          commit-message: reformat java files
+          branch: reformat
+          base: feature/reformat
+          reviewers: oognuyh
 
       - run: git branch --show-current
 
