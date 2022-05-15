@@ -12,22 +12,28 @@ jobs:
       - name: Check out base branch
         uses: actions/checkout@v3
 
-      - name: Create PR
-        id: new-branch
-        uses: peter-evans/create-pull-request@v4
-        with:
-          token: ${{ secrets.TOKEN }}
-          title: Reformat
-          commit-message: reformat java files
-          branch: reformat
-          branch-suffix: timestamp
-          reviewers: oognuyh
+      - name: Show GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
+
+      - run: git branch --show-current
 
       - name: Reformat java files
         uses: axel-op/googlejavaformat-action@v3
         with:
           args: "--skip-sorting-imports --replace"
           githubToken: ${{ secrets.TOKEN }}
-          commitMessage: "reformat java files"
+          skipCommit: true
+
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.TOKEN }}
+          title: Reformat
+          commit-message: reformat java files
+          branch: reformat
+          base: feature/reformat
+          reviewers: oognuyh
 
       - run: git status
