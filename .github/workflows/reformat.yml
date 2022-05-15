@@ -15,13 +15,6 @@ jobs:
           ref: "refs/pull/${{ github.event.number }}/merge"
       - run: cd BOJ2480 && ls -al
 
-      - name: Create new branch
-        uses: peterjgrainger/action-create-branch@v2.2.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        with:
-          branch: "style/reformat"
-
       - name: Reformat java files
         uses: axel-op/googlejavaformat-action@v3
         with:
