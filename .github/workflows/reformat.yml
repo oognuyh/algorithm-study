@@ -11,18 +11,11 @@ jobs:
     steps:
       - name: Check out base branch
         uses: actions/checkout@v3
-      - run: git branch --show-current
 
       - name: Show GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT"
-
-      - run: git branch --list
-
-      - run: |
-          git checkout reformat 2>/dev/null || git checkout -b reformat
-          git pull origin reformat
 
       - run: git branch --show-current
 
@@ -31,9 +24,7 @@ jobs:
         with:
           args: "--skip-sorting-imports --replace"
           githubToken: ${{ secrets.TOKEN }}
-          commitMessage: "reformat java files"
-
-      - run: git branch --show-current
+          skipCommit: true
 
       - name: Create PR
         uses: peter-evans/create-pull-request@v4
