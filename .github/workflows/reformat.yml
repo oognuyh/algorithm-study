@@ -5,6 +5,8 @@ on:
     branches:
       - feature/*
 
+permissions: write-all
+
 jobs:
   formatting:
     runs-on: ubuntu-latest
