@@ -18,15 +18,8 @@ jobs:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT"
 
-      - name: Create Branch
-        uses: peter-evans/create-pull-request@v4
-        with:
-          token: ${{ secrets.TOKEN }}
-          title: Reformat
-          commit-message: reformat java files
-          branch: reformat
-          base: feature/reformat
-          reviewers: oognuyh
+      - run: |
+          checkout -b reformat
 
       - run: git branch --show-current
 
