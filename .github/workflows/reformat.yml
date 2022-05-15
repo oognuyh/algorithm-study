@@ -11,6 +11,7 @@ jobs:
     steps:
       - name: Check out base branch
         uses: actions/checkout@v3
+        run: git branch --show-current
 
       - name: Create PR
         id: new-branch
@@ -19,9 +20,11 @@ jobs:
           token: ${{ secrets.TOKEN }}
           title: Reformat
           commit-message: reformat java files
-          branch: reformat
+          branch: reformat/
+          base: feature/reformat
           branch-suffix: timestamp
           reviewers: oognuyh
+        run: git branch --show-current
 
       - name: Reformat java files
         uses: axel-op/googlejavaformat-action@v3
