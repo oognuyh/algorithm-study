@@ -1,16 +1,19 @@
 name: Reformat
 
 on:
-  pull_request:
+  pull_request_target:
     branches:
       - feature/*
 
 jobs:
   formatting:
+    if: github.event.pull_request.merged
     runs-on: ubuntu-latest
     steps:
-      - name: Check out
+      - name: Check out base branch
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
       - run: cd BOJ2480 && ls -al
 
       - name: Create PR
@@ -18,7 +21,7 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.TOKEN }}
-          title: Formatting
+          title: Reformat
           commit-message: reformat java files
           branch: reformat
           branch-suffix: timestamp
