@@ -7,7 +7,6 @@ on:
 
 jobs:
   formatting:
-    if: github.event.pull_request.merged
     runs-on: ubuntu-latest
     steps:
       - name: Check out base branch
