@@ -11,7 +11,7 @@ public class bb {
        int maximum = Integer.MIN_VALUE;
     int numbers[] = new int[3];
 
-    for (int i = 0; i < numbers.length; i++) {
+        for (int i = 0; i < numbers.length; i++) {
       numbers[i] = Integer.parseInt(tokenizer.nextToken());
       if (numbers[i] > maximum) maximum = numbers[i];
     }
