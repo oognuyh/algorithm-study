@@ -1,23 +1,24 @@
 name: Reformat
 
 on:
-  push:
+  pull_request:
     branches:
       - feature/*
+    types:
+      - closed
 
 jobs:
   formatting:
+    if: github.event.pull_request.merged && !contains(github.event.pull_request.labels.*.name, 'reformat')
     runs-on: ubuntu-latest
     steps:
-      - name: Check out base branch
+      - name: Check out branch
         uses: actions/checkout@v3
 
       - name: Show GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT"
-
-      - run: git branch --show-current
 
       - name: Reformat java files
         uses: axel-op/googlejavaformat-action@v3
@@ -27,13 +28,28 @@ jobs:
           skipCommit: true
 
       - name: Create PR
+        id: cpr
         uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.TOKEN }}
-          title: Reformat
+          title: reformat java files
           commit-message: reformat java files
           branch: reformat
+          labels: reformat
           base: feature/reformat
           reviewers: oognuyh
 
-      - run: git status
+      - name: Auto approve
+        if: steps.cpr.outputs.pull-request-operation == 'created'
+        uses: juliangruber/approve-pull-request-action@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{ steps.cpr.outputs.pull-request-number }}
+
+      - name: Enable Pull Request Automerge
+        if: steps.cpr.outputs.pull-request-operation == 'created'
+        uses: peter-evans/enable-pull-request-automerge@v2
+        with:
+          token: ${{ secrets.PAT }}
+          pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
+          merge-method: squash
