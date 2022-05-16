@@ -14,7 +14,7 @@ jobs:
 
       - name: Show GitHub context
         env:
-          GITHUB_CONTEXT: ${{ toJSON(github.event) }}
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT"
 
       - name: Reformat java files
@@ -32,7 +32,7 @@ jobs:
           title: reformat java files
           commit-message: reformat java files
           branch: reformat
-          labels: reformat
+          labels: auto
           base: feature/reformat
           delete-branch: true
 
