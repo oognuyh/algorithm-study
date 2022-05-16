@@ -33,6 +33,7 @@ jobs:
           commit-message: reformat java files automatically
           branch: reformat
           base: feature/reformat
+          delete-branch: true
 
       - name: Auto approve
         if: steps.cpr.outputs.pull-request-operation == 'created'
@@ -52,3 +53,4 @@ jobs:
         with:
           token: ${{ secrets.TOKEN }}
           pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
+          merge-method: squash
