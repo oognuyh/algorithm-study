@@ -6,7 +6,7 @@ import java.util.StringTokenizer;
 public class bb {
 
   public static void main(String[] args) throws IOException {
-       BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
     StringTokenizer tokenizer = new StringTokenizer(bufferedReader.readLine());
     int maximum = Integer.MIN_VALUE;
     int numbers[] = new int[3];
