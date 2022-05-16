@@ -14,7 +14,7 @@ jobs:
 
       - name: Show GitHub context
         env:
-          GITHUB_CONTEXT: ${{ toJSON(github.event) }}
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT"
 
       - name: Reformat java files
@@ -29,10 +29,9 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.TOKEN }}
-          title: reformat java files
-          commit-message: reformat java files
+          title: reformat java files automatically
+          commit-message: reformat java files automatically
           branch: reformat
-          labels: reformat
           base: feature/reformat
           delete-branch: true
 
@@ -43,10 +42,15 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           number: ${{ steps.cpr.outputs.pull-request-number }}
 
-      - name: Enable Pull Request Automerge
+      - name: Show GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github.repository) }}
+        run: echo "$GITHUB_CONTEXT"
+
+      - name: Merge Pull Request
         if: steps.cpr.outputs.pull-request-operation == 'created'
-        uses: peter-evans/enable-pull-request-automerge@v2
+        uses: juliangruber/merge-pull-request-action@v1
         with:
-          token: ${{ secrets.TOKEN }}
-          pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
-          merge-method: squash
+          github-token: ${{ secrets.TOKEN }}
+          number: ${{ steps.cpr.outputs.pull-request-number }}
+          method: squash
