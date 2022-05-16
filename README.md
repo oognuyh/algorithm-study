@@ -62,14 +62,6 @@ Algorithm study with KHG0217, oognuyh, and Nohtaewon
 ## Pull Request
 
 - Require code reviews before merging changes
-- Steps
-  1. Fork this repository(upstream) into yours(origin)
-  1. Clone(local) yours
-  1. Push your code to origin
-  1. Pull
-  1. Send PR and review
-  1. Merge
-  1. Pull
 
 ## Wiki
 
