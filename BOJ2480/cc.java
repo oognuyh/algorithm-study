@@ -12,7 +12,7 @@ public class cc {
     int numbers[] = new int[3];
 
     for (int i = 0; i < numbers.length; i++) {
-         numbers[i] = Integer.parseInt(tokenizer.nextToken());
+      numbers[i] = Integer.parseInt(tokenizer.nextToken());
       if (numbers[i] > maximum) maximum = numbers[i];
     }
 
