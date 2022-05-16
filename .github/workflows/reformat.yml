@@ -29,10 +29,9 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.TOKEN }}
-          title: reformat java files
-          commit-message: reformat java files
+          title: reformat java files automatically
+          commit-message: reformat java files automatically
           branch: reformat
-          labels: auto
           base: feature/reformat
 
       - name: Auto approve
