@@ -1,0 +1,17 @@
+name: Self Approve
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  approve:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Auto approve
+        if: github.actor == github.repository_owner
+        uses: juliangruber/approve-pull-request-action@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{ github.event.number }}
