@@ -29,20 +29,18 @@ Algorithm study with KHG0217, oognuyh, and Nohtaewon
 ### Project Structure
 
 ```bash
-|-- Week1 # Week + nth
-    |-- BOJ2480 # Algorithm Site + Problem No
-        |-- KHG0217.java
-        |-- oognuyh.kt
-        |-- Nohtaewon.java
-    |-- P92334
-        |-- KHG0217.java
-        |-- oognuyh.java
-        |-- Nohtaewon.java
-    |-- LC1641
-        |-- KHG0217.java
-        |-- oognuyh.java
-        |-- Nohtaewon.java
-|-- Week2
+|-- BOJ2480 # ${issue.name}
+    |-- KHG0217.java
+    |-- oognuyh.kt
+    |-- Nohtaewon.java
+|-- P92334
+    |-- KHG0217.java
+    |-- oognuyh.java
+    |-- Nohtaewon.java
+|-- LC1641
+    |-- KHG0217.java
+    |-- oognuyh.java
+    |-- Nohtaewon.java
 ```
 
 ### File Naming
@@ -62,14 +60,6 @@ Algorithm study with KHG0217, oognuyh, and Nohtaewon
 ## Pull Request
 
 - Require code reviews before merging changes
-- Steps
-  1. Fork this repository(upstream) into yours(origin)
-  1. Clone(local) yours
-  1. Push your code to origin
-  1. Pull
-  1. Send PR and review
-  1. Merge
-  1. Pull
 
 ## Wiki
 
