@@ -10,20 +10,20 @@ public class Nohtaewon {
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(System.out));
 
-		int tc=Integer.parseInt(br.readLine());//�׽�Ʈ ���̽� ���� �Է� ������ tc�� ����
-		String[] ox=new String[tc];//�׽�Ʈ ���̽��� OX ���ڿ� �����Ŵ
+		int tc=Integer.parseInt(br.readLine());
+		String[] ox=new String[tc];
 
-		for(int i=0;i<tc;i++) {//for ���� ���̽� ���� ��ŭ ����
-			int jumsu=0;//�� ���� �ʱ�ȭ
-			int jumsu2=0;//���� ���� �ʱ�ȭ
-			ox[i]=br.readLine();//�Է¹���
-			String[] tmp=ox[i].split("");//�Է� �����ͤ��� ""�� �����ؼ� �迭�� ����
-			for(int j=0;j<tmp.length; j++) {// O,X�� �����ؼ� ��������� �ϴµ�
-				if(tmp[j].equals("O")) {//tmp�� j��°�� "O" ����
-					jumsu2++;//O�϶� �������� �þ
+		for(int i=0;i<tc;i++) {
+			int jumsu=0;
+			int jumsu2=0;
+			ox[i]=br.readLine();
+			String[] tmp=ox[i].split("");
+			for(int j=0;j<tmp.length; j++) {
+				if(tmp[j].equals("O")) {
+					jumsu2++;
 					jumsu+=jumsu2;
 				}else {
-					jumsu2=0;//�ƴϸ� �׳� 0��
+					jumsu2=0;
 				}
 				
 			}
