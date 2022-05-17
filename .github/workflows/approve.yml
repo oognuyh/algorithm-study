@@ -6,12 +6,17 @@ on:
       - master
 
 jobs:
+  if: github.actor == 'oognuyh'
   approve:
     runs-on: ubuntu-latest
     steps:
       - name: Auto approve
-        if: github.actor == github.repository_owner
         uses: juliangruber/approve-pull-request-action@v1
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.TOKEN }}
           number: ${{ github.event.number }}
+
+      - name: Show GitHub context
+        env:
+        GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
