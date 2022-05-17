@@ -6,7 +6,6 @@ on:
       - master
 
 jobs:
-  if: github.actor == 'oognuyh'
   approve:
     if: github.actor == 'oognuyh'
     runs-on: ubuntu-latest
