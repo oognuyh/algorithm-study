@@ -1,3 +1,5 @@
+package BOJ2480;
+
 import java.util.Scanner;
 
 public class Nohtaewon {
