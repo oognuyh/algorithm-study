@@ -11,15 +11,14 @@ public class Nohtaewon {
 		BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(System.out));
 
 		int tc=Integer.parseInt(br.readLine());
-		String[] ox=new String[tc];
+		
 
 		for(int i=0;i<tc;i++) {
 			int jumsu=0;
 			int jumsu2=0;
-			ox[i]=br.readLine();
-			String[] tmp=ox[i].split("");
-			for(int j=0;j<tmp.length; j++) {
-				if(tmp[j].equals("O")) {
+			String ox=br.readLine();
+			for(int j=0;j<ox.length(); j++) {
+				if(ox.charAt(j)=='O') {
 					jumsu2++;
 					jumsu+=jumsu2;
 				}else {
@@ -30,9 +29,9 @@ public class Nohtaewon {
 			bw.write(jumsu+"\n");
 			
 		}
-		bw.flush();
 		bw.close();
 		br.close();
 		
 	}
+
 }
