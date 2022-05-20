@@ -1,6 +1,5 @@
-package BOJ2480;
 
-import java.io.BufferedReader;
+package BOJ2480;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
