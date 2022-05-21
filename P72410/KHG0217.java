@@ -1,6 +1,6 @@
 package P72410;
 
-class Solution {
+class KHG0217 {
     public String solution(String new_id) {
         String str = new_id;
         str=str.toLowerCase();
