@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.Map;
 
 public class oognuyh {
-
     public int solution(String dartResult) {
         Map<Character, Integer> mapper = Map.of(
             'S', 1,
