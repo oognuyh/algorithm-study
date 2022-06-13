@@ -3,10 +3,10 @@ package P12977;
 import java.util.Arrays;
 
 class KHG0217 {
-	static int answer;
-	static boolean primeNumber[] = delete();
+	int answer;
+	boolean primeNumber[] = primeNumber();
 
-	public static boolean[] delete() {
+	public boolean[] primeNumber() {
 		boolean[] delete = new boolean[2998];
 
 		Arrays.fill(delete, true);
@@ -24,13 +24,13 @@ class KHG0217 {
 
 	}
 
-	public static int solution(int[] nums) {
+	public int solution(int[] nums) {
 		int[] result = new int[3];
 		combination(0, 0, nums, result);
 		return answer;
 	}
 
-	public static void combination(int cnt, int idx, int[] nums, int[] result) {
+	public void combination(int cnt, int idx, int[] nums, int[] result) {
 
 		if (cnt == 3) {
 			if (primeNumber[result[0] + result[1] + result[2]])
