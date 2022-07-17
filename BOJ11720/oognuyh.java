@@ -7,12 +7,14 @@ import java.util.Arrays;
 
 class oognuyh {
 
-    public static void main(String[] args) throws IOException {
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
-            bufferedReader.readLine().trim();
+  public static void main(String[] args) throws IOException {
+    try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
+      bufferedReader.readLine().trim();
 
-            System.out.println(Arrays.stream(bufferedReader.readLine().trim().split(""))
-                    .mapToInt(Integer::parseInt).sum());
-        }
+      System.out.println(
+          Arrays.stream(bufferedReader.readLine().trim().split(""))
+              .mapToInt(Integer::parseInt)
+              .sum());
     }
+  }
 }
