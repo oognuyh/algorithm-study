@@ -8,14 +8,15 @@ import java.util.IntSummaryStatistics;
 
 public class oognuyh {
 
-    public static void main(String[] args) throws IOException {
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
-            bufferedReader.readLine();
-            IntSummaryStatistics summary =
-                    Arrays.stream(bufferedReader.readLine().trim().split(" "))
-                            .mapToInt(Integer::parseInt).summaryStatistics();
+  public static void main(String[] args) throws IOException {
+    try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
+      bufferedReader.readLine();
+      IntSummaryStatistics summary =
+          Arrays.stream(bufferedReader.readLine().trim().split(" "))
+              .mapToInt(Integer::parseInt)
+              .summaryStatistics();
 
-            System.out.println(summary.getAverage() / summary.getMax() * 100);
-        }
+      System.out.println(summary.getAverage() / summary.getMax() * 100);
     }
+  }
 }
